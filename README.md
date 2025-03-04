@@ -1,7 +1,4 @@
-# Python_Assignment
-IU_Python_Assignment_Code
-
-# Python Project
+# Python_Assignment_Task
 
 ## Description
 This project implements a Python-based solution to process training data, find the best ideal functions, map test data, and store the results in an SQLite database. The program follows a structured workflow to ensure accuracy and efficiency in function selection and test data mapping.
