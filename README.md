@@ -1,148 +1,72 @@
-# Python_Assignment
-IU_Python_Assignment_Code
+# Python Assignment - Branch Version
 
-# Python Project
+## Brief Overview
 
-## Description
-This project implements a Python-based solution to process training data, find the best ideal functions, map test data, and store the results in an SQLite database. The program follows a structured workflow to ensure accuracy and efficiency in function selection and test data mapping.
+This project implements a Python-based approach to analyze training data, identify the best ideal functions using the Least Squares Method, and map test data to these functions based on a predefined threshold. The processed data is stored in an SQLite database, and the results are visualized for better understanding.
 
-## How This Code Meets the Assignment Requirements
-The implementation meets all the assignment requirements as follows:
+### Key Functionalities:
 
-1. **Object-Oriented Design**
-   - The project is structured using **classes** for different functionalities:
-     - `DatasetHandler` (Base class for data handling)
-     - `TrainingData`, `IdealFunctions`, `TestData` (Derived from `DatasetHandler`)
-     - `DataMapping` (Handles function selection and test data mapping)
-     - `DatabaseHandler` (Manages database operations)
-     - `Visualizer` (Handles visualization)
-   - This ensures modularity and **object-oriented programming (OOP)** principles.
-
-2. **Inheritance**
-   - The `TrainingData`, `IdealFunctions`, and `TestData` classes **inherit** from `DatasetHandler`, demonstrating **class inheritance**.
-
-3. **Exception Handling**
-   - The code includes **both standard and user-defined exceptions**:
-     - It handles **file loading errors** (e.g., `FileNotFoundError`, `pd.errors.EmptyDataError`, `pd.errors.ParserError`).
-     - It includes exception handling in **data processing** (`KeyError`, `IndexError`).
-     - Custom messages and structured logging are used.
-
-4. **Use of Pandas, Bokeh, and SQLAlchemy**
-   - `Pandas`: Used for **data processing** (loading CSV, manipulating DataFrames).  
-   - `Bokeh`: Used for **data visualization** (plotting training, ideal, and test data).  
-   - `SQLAlchemy`: Used to **store and manage** the dataset in an **SQLite database**.
-
-5. **Unit Testing**
-   - The project includes **unit tests** for:
-     - **Loading data** (`test_load_data`)
-     - **Selecting ideal functions** (`test_select_best_ideal_functions`)
-     - **Mapping test data** (`test_map_test_data`)
-
-6. **Documentation and Docstrings**
-   - **Each class and method has a proper docstring**, explaining:
-     - Purpose
-     - Attributes
-     - Input and output details
-   - The README also clearly describes **what the code does** and how it meets the assignment requirements.
-
-7. **How Data is Processed**
-   - The program reads four training datasets (A) and one test dataset (B) from CSV files.
-   - It also reads 50 ideal functions (C) from another dataset.
-   - The **Least Squares Method** is applied to select the best four ideal functions.
-   - The test dataset is evaluated against these functions based on a **threshold condition (√2 max deviation rule)**.
-   - The results are stored in an SQLite database.
-   - The processed data and mappings are visualized using **Bokeh**.
+1. **Loading Data**: The program reads training, ideal, and test datasets from CSV files.
+2. **Function Selection**: It selects the best four ideal functions that minimize the sum of squared y-deviations.
+3. **Test Data Mapping**: Maps test data to selected ideal functions if the deviation does not exceed a threshold.
+4. **Data Storage**: All processed data is stored in an SQLite database.
+5. **Visualization**: The results, including mappings and deviations, are displayed using Bokeh.
+6. **Automated Report Generation**: Outputs results to an Excel file and opens it automatically.
 
 ---
 
-## Installation
-### Prerequisites
-Ensure you have the following installed on your system:
-- Python 3.x
-- Git
-- Required dependencies (listed in `requirements.txt`)
+## Dataset Information
 
-### Clone the Repository
-```bash
-git clone https://github.com/NITHYA-KARUNAKAR/PythonProject.git
-cd PythonProject
-```
+The project utilizes three main datasets:
 
-### Create a Virtual Environment (Optional but Recommended)
-```bash
-python -m venv venv
-source venv/bin/activate  # macOS/Linux
-venv\Scripts\activate  # Windows
-```
-
-### Install Dependencies
-```bash
-pip install -r requirements.txt
-```
+- **Training Dataset** (`train.csv`): Contains x-y pairs for four training functions used to select the best-fitting ideal functions.
+- **Ideal Functions Dataset** (`ideal.csv`): Contains x-y pairs for 50 ideal functions. The program determines the four best matches for the training functions.
+- **Test Dataset** (`test.csv`): Contains x-y pairs of test points. These are mapped to one of the four selected ideal functions based on a threshold criterion.
 
 ---
 
-## Usage
-To run the project:
-```bash
-python main.py
-```
+## Code Structure
 
-For specific functionalities, use:
-```bash
-python script.py --option
-```
+The repository consists of the following key files:
 
-Example:
-```bash
-python script.py --help
-```
+- ``: The main execution file that runs the entire pipeline.
+- ``: Handles loading and saving data from CSV and databases.
+- ``: Implements function selection and test data mapping logic.
+- ``: Manages SQLite database operations using SQLAlchemy.
+- ``: Uses Bokeh to generate interactive graphs.
+- ``: Contains unit tests to validate functionality.
 
 ---
 
-## Git Workflow
-### Cloning and Branching
-```bash
-git clone https://github.com/NITHYA-KARUNAKAR/PythonProject.git
-cd PythonProject
-git checkout develop
-git pull origin develop
-git checkout -b feature-new-function
-```
+## Expected Output
 
-### Making Changes and Committing
-```bash
-git add .
-git commit -m "Added a new function to improve feature XYZ"
-```
+1. **Excel File Output**:
 
-### Pushing and Creating a Pull Request
-```bash
-git push origin feature-new-function
-```
-1. Go to the repository on GitHub.
-2. Create a Pull Request (PR) against the `develop` branch.
-3. Request a review and wait for approval.
+   - The program generates an Excel file containing:
+     - Full logs of the function selection and mapping process.
+     - Mapped test data with assigned ideal functions and deviation values.
 
-### Merging and Cleaning Up
-```bash
-git checkout develop
-git pull origin develop
-git branch -d feature-new-function
-git push origin --delete feature-new-function
-```
+2. **Graph Generation**:
+
+   - The Bokeh visualization displays:
+     - Training data as blue scatter points.
+     - Selected ideal functions as green lines.
+     - Mapped test data as red points, indicating whether they met the threshold.
 
 ---
 
+## Identified Ideal Functions
 
-## Acknowledgments
-- Inspired by industry best practices in machine learning.
+After processing the data, the following four ideal functions were selected:
 
+- **y1 → y41**
+- **y2 → y11**
+- **y3 → y42**
+- **y4 → y48**
 
----
+These functions were chosen based on the Least Squares Method, ensuring the best fit for the given training data. The Bokeh visualization confirms the correct mapping and thresholding of test data.
 
-## Contact
-For questions or suggestions, reach out to me at:
-- Email: nithyakarunakara@gmail.com
-- GitHub: https://github.com/NITHYA-KARUNAKAR
+   ```
+
+This branch focuses on a simplified overview, making it easier to understand the core functionalities and how results are processed and presented.
 
