@@ -133,8 +133,8 @@ git push origin --delete feature-new-function
 ### Additional Git Commands as Required by the Assignment
 #### Basic Git Configurations
 ```bash
-git config --global user.email "your-email@example.com"
-git config --global user.name "Your Name"
+git config --global user.email "nithyakarunakara@gmail.com"
+git config --global user.name "NITHYA-KARUNAKAR"
 ```
 
 #### Creating and Managing Branches
