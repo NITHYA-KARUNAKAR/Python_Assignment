@@ -64,8 +64,8 @@ Ensure you have the following installed on your system:
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/NITHYA-KARUNAKAR/PythonProject.git
-cd PythonProject
+git clone https://github.com/NITHYA-KARUNAKAR/Python_Assignment.git
+cd Python_Assignment
 ```
 
 ### Create a Virtual Environment (Optional but Recommended)
@@ -100,11 +100,12 @@ python script.py --help
 
 ---
 
-## Git Workflow
-### Cloning and Branching
+## Git Workflow (as per Assignment Requirements)
+
+### Clone the Repository and Work on the Develop Branch
 ```bash
-git clone https://github.com/NITHYA-KARUNAKAR/PythonProject.git
-cd PythonProject
+git clone https://github.com/NITHYA-KARUNAKAR/Python_Assignment.git
+cd Python_Assignment
 git checkout develop
 git pull origin develop
 git checkout -b feature-new-function
@@ -132,12 +133,35 @@ git branch -d feature-new-function
 git push origin --delete feature-new-function
 ```
 
----
+### Additional Git Commands as Required by the Assignment
+#### Basic Git Configurations
+```bash
+git config --global user.email "your-email@example.com"
+git config --global user.name "Your Name"
+```
 
+#### Creating and Managing Branches
+```bash
+git branch develop
+git checkout -b develop
+git push origin develop
+git branch --set-upstream-to=origin/develop
+```
 
-## Acknowledgments
-- Inspired by industry best practices in machine learning.
+#### Checking Branch Information
+```bash
+git branch -a  # List all branches
+git branch -r  # Check remote branches only
+git branch  # Check current branch
+git status  # Show working directory status
+```
 
+#### Handling Outdated Branch During Push
+```bash
+git pull origin develop --rebase
+```
+
+The above **Git workflow**  ensures the correct **cloning, developing, committing, pushing, and merging process** 
 
 ---
 
